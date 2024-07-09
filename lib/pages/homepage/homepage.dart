@@ -17,7 +17,6 @@ class HomePage extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-         
               const SizedBox(width: 20),
               const Text(
                 "SMART CAR PARKING",
@@ -80,16 +79,19 @@ class HomePage extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                        child: Obx(
-                      () => ParkingSlot(
-                        isBooked: parkingController.slot1.value.booked,
-                        isParked: parkingController.slot1.value.isParked,
-                        slotName: "A-1",
-                        slotId: "1",
-                        time: parkingController.slot1.value.parkingHours
-                            .toString(),
+                      child: Obx(
+                        () => parkingController.slot1.value.status == 1
+                            ? Image.asset('assets/images/car.png')
+                            : ParkingSlot(
+                                isBooked: parkingController.slot1.value.booked,
+                                isParked: parkingController.slot1.value.isParked,
+                                slotName: "A-1",
+                                slotId: "1",
+                                time: parkingController.slot1.value.parkingHours
+                                    .toString(),
+                              ),
                       ),
-                    )),
+                    ),
                     const SizedBox(
                       width: 60,
                       height: 60,
@@ -99,30 +101,38 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                        child: Obx(
-                      () => ParkingSlot(
-                        isBooked: parkingController.slot2.value.booked,
-                        isParked: parkingController.slot2.value.isParked,
-                        slotName: "A-2",
-                        slotId: "2",
-                        time: parkingController.slot2.value.parkingHours
-                            .toString(),
+                      child: Obx(
+                        () => parkingController.slot2.value.status == 1
+                            ? Image.asset('assets/images/car.png')
+                            : ParkingSlot(
+                                isBooked: parkingController.slot2.value.booked,
+                                isParked: parkingController.slot2.value.isParked,
+                                slotName: "A-2",
+                                slotId: "2",
+                                time: parkingController.slot2.value.parkingHours
+                                    .toString(),
+                              ),
                       ),
-                    ))
+                    ),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
-                        child: Obx(() => ParkingSlot(
-                              isBooked: parkingController.slot3.value.booked,
-                              isParked: parkingController.slot3.value.isParked,
-                              slotName: "A-3",
-                              slotId: "3",
-                              time: parkingController.slot3.value.parkingHours
-                                  .toString(),
-                            ))),
+                      child: Obx(
+                        () => parkingController.slot3.value.status == 1
+                            ? Image.asset('assets/images/car.png')
+                            : ParkingSlot(
+                                isBooked: parkingController.slot3.value.booked,
+                                isParked: parkingController.slot3.value.isParked,
+                                slotName: "A-3",
+                                slotId: "3",
+                                time: parkingController.slot3.value.parkingHours
+                                    .toString(),
+                              ),
+                      ),
+                    ),
                     const SizedBox(
                       width: 60,
                       height: 60,
@@ -132,28 +142,38 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                        child: Obx(() => ParkingSlot(
-                              isBooked: parkingController.slot4.value.booked,
-                              isParked: parkingController.slot4.value.isParked,
-                              slotName: "A-4",
-                              slotId: "4",
-                              time: parkingController.slot4.value.parkingHours
-                                  .toString(),
-                            )))
+                      child: Obx(
+                        () => parkingController.slot4.value.status == 1
+                            ? Image.asset('assets/images/car.png')
+                            : ParkingSlot(
+                                isBooked: parkingController.slot4.value.booked,
+                                isParked: parkingController.slot4.value.isParked,
+                                slotName: "A-4",
+                                slotId: "4",
+                                time: parkingController.slot4.value.parkingHours
+                                    .toString(),
+                              ),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
-                        child: Obx(() => ParkingSlot(
-                              isBooked: parkingController.slot5.value.booked,
-                              isParked: parkingController.slot5.value.isParked,
-                              slotName: "A-5",
-                              slotId: "5",
-                              time: parkingController.slot5.value.parkingHours
-                                  .toString(),
-                            ))),
+                      child: Obx(
+                        () => parkingController.slot5.value.status == 1
+                            ? Image.asset('assets/images/car.png')
+                            : ParkingSlot(
+                                isBooked: parkingController.slot5.value.booked,
+                                isParked: parkingController.slot5.value.isParked,
+                                slotName: "A-5",
+                                slotId: "5",
+                                time: parkingController.slot5.value.parkingHours
+                                    .toString(),
+                              ),
+                      ),
+                    ),
                     const SizedBox(
                       width: 60,
                       height: 60,
@@ -163,28 +183,38 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                        child: Obx(() => ParkingSlot(
-                              isBooked: parkingController.slot6.value.booked,
-                              isParked: parkingController.slot6.value.isParked,
-                              slotName: "A-6",
-                              slotId: "6",
-                              time: parkingController.slot6.value.parkingHours
-                                  .toString(),
-                            )))
+                      child: Obx(
+                        () => parkingController.slot6.value.status == 1
+                            ? Image.asset('assets/images/car.png')
+                            : ParkingSlot(
+                                isBooked: parkingController.slot6.value.booked,
+                                isParked: parkingController.slot6.value.isParked,
+                                slotName: "A-6",
+                                slotId: "6",
+                                time: parkingController.slot6.value.parkingHours
+                                    .toString(),
+                              ),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
-                        child: Obx(() => ParkingSlot(
-                              isBooked: parkingController.slot7.value.booked,
-                              isParked: parkingController.slot7.value.isParked,
-                              slotName: "A-7",
-                              slotId: "7",
-                              time: parkingController.slot7.value.parkingHours
-                                  .toString(),
-                            ))),
+                      child: Obx(
+                        () => parkingController.slot7.value.status == 1
+                            ? Image.asset('assets/images/car.png')
+                            : ParkingSlot(
+                                isBooked: parkingController.slot7.value.booked,
+                                isParked: parkingController.slot7.value.isParked,
+                                slotName: "A-7",
+                                slotId: "7",
+                                time: parkingController.slot7.value.parkingHours
+                                    .toString(),
+                              ),
+                      ),
+                    ),
                     const SizedBox(
                       width: 60,
                       height: 60,
@@ -194,14 +224,19 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Expanded(
-                        child: Obx(() => ParkingSlot(
-                              isBooked: parkingController.slot8.value.booked,
-                              isParked: parkingController.slot8.value.isParked,
-                              slotName: "A-8",
-                              slotId: "8",
-                              time: parkingController.slot8.value.parkingHours
-                                  .toString(),
-                            )))
+                      child: Obx(
+                        () => parkingController.slot8.value.status == 1
+                            ? Image.asset('assets/images/car.png')
+                            : ParkingSlot(
+                                isBooked: parkingController.slot8.value.booked,
+                                isParked: parkingController.slot8.value.isParked,
+                                slotName: "A-8",
+                                slotId: "8",
+                                time: parkingController.slot8.value.parkingHours
+                                    .toString(),
+                              ),
+                      ),
+                    ),
                   ],
                 ),
                 const Row(
@@ -217,7 +252,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Made By : Yvan Njanko",
+                      "Made By : Groupe 7",
                       style: TextStyle(
                         color: lightBg,
                       ),

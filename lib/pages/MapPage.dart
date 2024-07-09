@@ -24,7 +24,7 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     final Completer<GoogleMapController> controller = Completer();
-    const LatLng center = LatLng(3.862026, 11.519996);
+    const LatLng center = LatLng(3.858832, 11.500001);
     
     return Scaffold(
       appBar: AppBar(
@@ -103,7 +103,44 @@ class _MapPageState extends State<MapPage> {
               Get.to(HomePage());
             },
             markerId: MarkerId('parking_5'),
-            position: LatLng(23.251951095267497, 77.48558382672624),
+            position: LatLng(3.857541, 11.501321),
+          ),Marker(
+            visible: true,
+            onTap: () {
+              Get.to(HomePage());
+            },
+            markerId: MarkerId('parking_6'),
+            position: LatLng(3.856541, 11.511321),
+          ),Marker(
+            visible: true,
+            onTap: () {
+              Get.to(HomePage());
+            },
+            markerId: MarkerId('parking_7'),
+            position: LatLng(3.807541, 11.501321),
+          ),
+          Marker(
+            visible: true,
+            onTap: () {
+              Get.to(HomePage());
+            },
+            markerId: MarkerId('parking_8'),
+            position: LatLng(3.854541, 11.521321),
+          ),
+          Marker(
+            visible: true,
+            onTap: () {
+              Get.to(HomePage());
+            },
+            markerId: MarkerId('parking_9'),
+            position: LatLng(3.854521, 11.521320),
+          ),Marker(
+            visible: true,
+            onTap: () {
+              Get.to(HomePage());
+            },
+            markerId: MarkerId('parking_10'),
+            position: LatLng(3.850541, 11.510321),
           ),
         },
         myLocationButtonEnabled: true,

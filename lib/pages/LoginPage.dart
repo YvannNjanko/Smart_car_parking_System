@@ -40,10 +40,10 @@ class LoginPage extends StatelessWidget {
               ),
               SizedBox(height: 30),
               MyTextField(
-                  icons: Icons.email, lable: "Email id", Onchange: demo),
+                  icons: Icons.email, lable: "Enter your Email", Onchange: demo),
               SizedBox(height: 10),
               MyTextField(
-                  icons: Icons.password, lable: "Password", Onchange: demo),
+                  icons: Icons.password_outlined, lable: "Enter your Password", Onchange: demo),
               SizedBox(height: 90),
               MyButton(
                 icon: Icons.admin_panel_settings_rounded,

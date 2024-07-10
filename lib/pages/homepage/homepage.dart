@@ -253,7 +253,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Made By : Groupe 7",
+                      "Made By : Yvan Njanko",
                       style: TextStyle(
                         color: lightBg,
                       ),

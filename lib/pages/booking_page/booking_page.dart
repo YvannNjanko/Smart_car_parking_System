@@ -230,16 +230,7 @@ class BookingPage extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        parkingController.timeCounter();
-                        parkingController.updateSlotStatus(slotId);
-                        Get.snackbar(
-                          "Payment Status",
-                          "Payment Successful! \n Via PayPal",
-                          backgroundColor: Colors.green,
-                          colorText: Colors.white,
-                          snackPosition: SnackPosition.BOTTOM,
-                          duration: Duration(seconds: 3),
-                        );
+                        _showPaymentOptions(context, parkingController, slotId);
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
@@ -264,6 +255,121 @@ class BookingPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _showPaymentOptions(BuildContext context, ParkingController parkingController, String slotId) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Choose Payment Method",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 20),
+              ListTile(
+                leading: Icon(Icons.payment, color: blueColor),
+                title: Text("PayPal"),
+                onTap: () {
+                  _processPayment(context, parkingController, slotId, "PayPal");
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.credit_card, color: blueColor),
+                title: Text("Visa Card"),
+                onTap: () {
+                  _showCardDetailsForm(context, parkingController, slotId);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _showCardDetailsForm(BuildContext context, ParkingController parkingController, String slotId) {
+    TextEditingController cardNumberController = TextEditingController();
+    TextEditingController expiryDateController = TextEditingController();
+    TextEditingController cvvController = TextEditingController();
+    
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Enter Card Details",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: cardNumberController,
+                decoration: InputDecoration(
+                  labelText: "Card Number",
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: expiryDateController,
+                decoration: InputDecoration(
+                  labelText: "Expiry Date",
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.datetime,
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: cvvController,
+                decoration: InputDecoration(
+                  labelText: "CVV",
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.number,
+                obscureText: true,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  _processPayment(context, parkingController, slotId, "Visa Card");
+                },
+                child: Text("Submit"),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _processPayment(BuildContext context, ParkingController parkingController, String slotId, String paymentMethod) {
+    Navigator.pop(context);
+    parkingController.timeCounter();
+    parkingController.updateSlotStatus(slotId);
+    Get.snackbar(
+      "Payment Status",
+      "Payment Successful! \n Via $paymentMethod",
+      backgroundColor: Colors.green,
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+      duration: Duration(seconds: 3),
     );
   }
 }

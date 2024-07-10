@@ -6,11 +6,12 @@ import 'package:smart_car_parking/controller/PakingController.dart';
 import '../../config/colors.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  final ParkingController parkingController;
+
+  HomePage({super.key, required this.parkingController});
 
   @override
   Widget build(BuildContext context) {
-    ParkingController parkingController = Get.put(ParkingController());
     return Scaffold(
         appBar: AppBar(
           backgroundColor: blueColor,

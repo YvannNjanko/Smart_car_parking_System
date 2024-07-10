@@ -133,9 +133,17 @@ class BookingPage extends StatelessWidget {
                   value: parkingController.parkingTimeInMin.value,
                   onChanged: (v) {
                     parkingController.parkingTimeInMin.value = v;
-                    if (v <= 30) {
+                    if (v <= 10) {
                       parkingController.parkingAmount.value = 10;
-                    } else {
+                    } else if(v <= 20) {
+                      parkingController.parkingAmount.value = 20;
+                    }else if(v <= 30) {
+                      parkingController.parkingAmount.value = 30;
+                    }else if(v <= 40) {
+                      parkingController.parkingAmount.value = 40;
+                    }else if(v <= 50) {
+                      parkingController.parkingAmount.value = 50;
+                    }else if(v <= 60) {
                       parkingController.parkingAmount.value = 60;
                     }
                   },
@@ -226,7 +234,7 @@ class BookingPage extends StatelessWidget {
                         parkingController.updateSlotStatus(slotId);
                         Get.snackbar(
                           "Payment Status",
-                          "Payment Successful!",
+                          "Payment Successful! \n Via PayPal",
                           backgroundColor: Colors.green,
                           colorText: Colors.white,
                           snackPosition: SnackPosition.BOTTOM,

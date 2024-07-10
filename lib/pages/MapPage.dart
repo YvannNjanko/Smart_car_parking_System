@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:smart_car_parking/config/colors.dart';
+import 'package:smart_car_parking/controller/PakingController.dart';
 import 'package:smart_car_parking/pages/homepage/homepage.dart';
 
 class MapPage extends StatefulWidget {
@@ -14,7 +15,7 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-
+  final ParkingController parkingController = Get.put(ParkingController());
 
   @override
   void initState() {
@@ -25,14 +26,13 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     final Completer<GoogleMapController> controller = Completer();
     const LatLng center = LatLng(3.858832, 11.500001);
-    
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: blueColor,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            
             const SizedBox(width: 20),
             const Text(
               "SMART CAR PARKING",
@@ -68,7 +68,7 @@ class _MapPageState extends State<MapPage> {
           Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_1'),
             position: LatLng(3.862591, 11.520680),
@@ -76,7 +76,7 @@ class _MapPageState extends State<MapPage> {
           Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_2'),
             position: LatLng(3.867176, 11.515681),
@@ -84,7 +84,7 @@ class _MapPageState extends State<MapPage> {
           Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_3'),
             position: LatLng(3.860205, 11.517491),
@@ -92,7 +92,7 @@ class _MapPageState extends State<MapPage> {
           Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_4'),
             position: LatLng(3.847541, 11.521321),
@@ -100,21 +100,23 @@ class _MapPageState extends State<MapPage> {
           Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_5'),
             position: LatLng(3.857541, 11.501321),
-          ),Marker(
+          ),
+          Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_6'),
             position: LatLng(3.856541, 11.511321),
-          ),Marker(
+          ),
+          Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_7'),
             position: LatLng(3.807541, 11.501321),
@@ -122,7 +124,7 @@ class _MapPageState extends State<MapPage> {
           Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_8'),
             position: LatLng(3.854541, 11.521321),
@@ -130,14 +132,15 @@ class _MapPageState extends State<MapPage> {
           Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_9'),
             position: LatLng(3.854521, 11.521320),
-          ),Marker(
+          ),
+          Marker(
             visible: true,
             onTap: () {
-              Get.to(HomePage());
+              Get.to(HomePage(parkingController: parkingController));
             },
             markerId: MarkerId('parking_10'),
             position: LatLng(3.850541, 11.510321),
